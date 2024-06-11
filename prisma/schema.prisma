@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id                  String    @id @default(uuid())
+  active              Boolean
+  classId             String
+  class               Class     @relation(fields: [classId], references: [id])
+  subjects            Subject[]
+  prevSchoolName      String
+  extraLesson         Boolean
+  schoolBus           Boolean
+  lunch               Boolean
+  image               String
+  userId              String
+  user                User      @relation(fields: [userId], references: [id])
+  createdAt           DateTime  @default(now())
+  updateAt            DateTime  @updatedAt
+}
+
+model User {
+  id            String     @id @default(uuid())
+  fullName      String
+  image         String
+  gender        String
+  nationality   String
+  stateOrigin   String
+  email         String     @unique
+  phoneNumber   Int
+  accessControl String
+  createdAt     DateTime   @default(now())
+  updateAt      DateTime   @updatedAt
+  students      Student[]
+  staffs        Staff[]
+  guardians     Guardian[]
+}
+
+model Staff {
+  id             String   @id @default(uuid())
+  teachingStaff  Boolean
+  jobRole        String
+  salary         String
+  prevSchoolName String
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  createdAt      DateTime @default(now())
+  updateAt       DateTime @updatedAt
+}
+
+model Guardian {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model Subject {
+  id              String    @id @default(uuid())
+  subjectName     String    @unique
+  classTaught     Class[]
+  teacher         String
+  numberOfStudent Int
+  createdAt       DateTime  @default(now())
+  updateAt        DateTime  @updatedAt
+  students        Student[]
+}
+
+model Class {
+  id              String    @id @default(uuid())
+  className       String    @unique
+  subjects        Subject[]
+  students        Student[]
+  numberOfStudent String
+  tier            Int
+  category        Int
+  subcategory     Int
+  createdAt       DateTime  @default(now())
+  updateAt        DateTime  @updatedAt
+}
