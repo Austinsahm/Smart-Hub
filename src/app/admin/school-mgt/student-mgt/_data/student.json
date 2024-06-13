@@ -1,0 +1,162 @@
+[
+  {
+    "id": "NCG-18-701",
+    "fullName": "John Doe",
+    "status": "active",
+    "label": "Head Boy",
+    "classes": "kindergarten_1",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-702",
+    "fullName": "Jane Smith",
+    "status": "inactive",
+    "label": "Head Girl",
+    "classes": "sss_3",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-703",
+    "fullName": "Alice Johnson",
+    "status": "graduated",
+    "label": "Prefect",
+    "classes": "jss_2",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-704",
+    "fullName": "Bob Brown",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "primary_4",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-705",
+    "fullName": "Michael Wilson",
+    "status": "inactive",
+    "label": "Prefect",
+    "classes": "sss_1",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-706",
+    "fullName": "Emily Taylor",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "primary_2",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-707",
+    "fullName": "David Martinez",
+    "status": "graduated",
+    "label": "Prefect",
+    "classes": "sss_3",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-708",
+    "fullName": "Sarah Lee",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "jss_3",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-709",
+    "fullName": "Daniel Garcia",
+    "status": "inactive",
+    "label": "Prefect",
+    "classes": "kindergarten_3",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-710",
+    "fullName": "Olivia Rodriguez",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "primary_6",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-711",
+    "fullName": "Matthew Hernandez",
+    "status": "graduated",
+    "label": "Prefect",
+    "classes": "sss_2",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-712",
+    "fullName": "Sophia Lopez",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "kindergarten_2",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-713",
+    "fullName": "William Gonzales",
+    "status": "inactive",
+    "label": "Prefect",
+    "classes": "jss_1",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-714",
+    "fullName": "Amelia Perez",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "primary_5",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-715",
+    "fullName": "James Roberts",
+    "status": "graduated",
+    "label": "Prefect",
+    "classes": "sss_1",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-716",
+    "fullName": "Mia Turner",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "kindergarten_1",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-717",
+    "fullName": "Ethan White",
+    "status": "inactive",
+    "label": "Prefect",
+    "classes": "primary_3",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-718",
+    "fullName": "Charlotte Scott",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "sss_2",
+    "gender": "F"
+  },
+  {
+    "id": "NCG-18-719",
+    "fullName": "Alexander Hill",
+    "status": "graduated",
+    "label": "Prefect",
+    "classes": "primary_1",
+    "gender": "M"
+  },
+  {
+    "id": "NCG-18-720",
+    "fullName": "Ava Adams",
+    "status": "active",
+    "label": "Prefect",
+    "classes": "jss_3",
+    "gender": "F"
+  }
+]

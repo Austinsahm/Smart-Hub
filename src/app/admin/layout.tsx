@@ -17,7 +17,7 @@ export default function AdminLayout({
         <NavLink href="/admin/school-config">School Config.</NavLink>
         <NavLink href="/admin/access-control">Access Control</NavLink>
       </Nav>
-      <div className="px-8">{children}</div>
+      <div className="px-4 md:px-8">{children}</div>
     </>
   );
 }

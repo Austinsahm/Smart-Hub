@@ -1,93 +1,45 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
-import { Search } from "../../_components/Search";
-import { ChevronRight, FileUp, UserPlus } from "lucide-react";
-import { ClassDropdown } from "../../_components/ClassDropdown";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import ProfileCard from "../../_components/ProfileCard";
+import { FileUp, UserPlus } from "lucide-react";
 import Link from "next/link";
-import db from "@/db/db";
+import React from "react";
+import { DataTable } from "./_components/data-table";
+import { Metadata } from "next";
+import { promises as fs } from "fs";
+import path from "path";
+import { z } from "zod";
+import { studentSchema } from "./_data/schema";
+import { columns } from "./_components/columns";
 
-async function getStudentData() {
-  const data = await db.student.findMany();
+export const metadata: Metadata = {
+  title: "Student",
+  description: "A task and issue tracker build using Tanstack Table.",
+};
 
-  // if (data == null) {
-  //   return [];
-  // } else {
-  // }
-  console.log(data);
-  return data;
+// Simulate a database read for tasks.
+async function getStudent() {
+  const data = await fs.readFile(
+    path.join(
+      process.cwd(),
+      "src/app/admin/school-mgt/student-mgt/_data/student.json"
+    )
+  );
+
+  const student = JSON.parse(data.toString());
+
+  return z.array(studentSchema).parse(student);
 }
 
 export default async function Page() {
-  const data = [
-    {
-      id: 1,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-    {
-      id: 2,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-    {
-      id: 3,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-    {
-      id: 4,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-    {
-      id: 5,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-    {
-      id: 6,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-    {
-      id: 7,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-    {
-      id: 8,
-      name: "John Martins",
-      imagePath: "/avatars/01.png",
-      role: "SSS 3",
-      tag: "58264123",
-    },
-  ];
-  const studentData = await getStudentData();
+  const student = await getStudent();
   return (
-    <div className="flex-1 space-y-4 py-6">
-      <div className="flex items-center justify-between border rounded-md p-4">
-        <div className="flex items-center space-x-2">
-          <Search /> <span>|</span>
-          <ClassDropdown />
+    <div className="hidden h-full flex-1 flex-col space-y-8 py-6 md:flex">
+      <div className="flex items-center justify-between space-y-2">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight">Student</h2>
+          <p className="text-muted-foreground">
+            Here&apos;s a list of all your student!
+          </p>
         </div>
-
         <div className="flex items-center space-x-2">
           <Button variant="outline">
             Bulk upload
@@ -101,18 +53,7 @@ export default async function Page() {
           </Button>
         </div>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {/* {data.map((c) => (
-          <ProfileCard
-            key={c.id}
-            name={c.name}
-            imagePath={c.imagePath}
-            role={c.role}
-            tag={c.tag}
-          />
-        ))} */}
-        {studentData.map((student) => student.id)}
-      </div>
+      <DataTable data={student} columns={columns} />
     </div>
   );
 }
